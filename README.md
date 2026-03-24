@@ -45,27 +45,32 @@ npm install
 
 ## 🏃 How to Run
 
-### Method A: Run with GUI (Recommended)
+### ⚡ One-Click Launch (Recommended)
+Just double-click **`start.bat`** — it will:
+1. Check that Python and npm are installed.
+2. Auto-download the hand tracking model if missing.
+3. Install frontend dependencies if needed.
+4. Launch both Backend and Frontend in separate terminals.
+
+### Method B: Run Manually
 1. **Start the Frontend:**
    ```bash
    cd frontend
+   npm install
    npm run dev
    ```
-2. **Start the Backend:**
-   In a new terminal:
+2. **Start the Backend** (in a new terminal):
    ```bash
    cd src
    python main.py
    ```
-3. Open the link displayed in the frontend terminal (usually `http://localhost:5173`) to access the dashboard.
+3. Open `http://localhost:5173` for the dashboard.
 
-### Method B: Run Backend Only
-If you don't need the GUI, you can just run:
+### Method C: Backend Only
 ```bash
 cd src
 python main.py
 ```
-The system will use default settings.
 
 ## 🖱️ Hand Gestures Guide
 
@@ -81,19 +86,24 @@ The system will use default settings.
 
 ```
 AI-Virtual-Mouse/
+├── start.bat              # One-click launcher
+├── README.md
+├── requirements.txt
+├── .gitignore
+├── documentation/
+│   └── student_manual.md  # Educational walkthrough
 ├── src/
 │   ├── main.py            # Entry point & Execution loop
-│   ├── hand_tracker.py    # Landmark detection
-│   ├── gesture_logic.py   # Mapping logic
-│   ├── mouse_controller.py# System mouse control
-│   └── server.py          # FastAPI communication layer
-├── frontend/              # React Dashboard
+│   ├── hand_tracker.py    # MediaPipe landmark detection
+│   ├── gesture_logic.py   # Gesture recognition engine
+│   ├── mouse_controller.py# Cursor control + smoothing
+│   └── server.py          # FastAPI WebSocket server
+├── frontend/
 │   ├── src/
 │   │   ├── App.jsx        # Dashboard UI
 │   │   └── index.css      # Tailwind V4 styles
 │   └── ...
-├── requirements.txt       # Python dependencies
-└── README.md              # Documentation
+└── ...
 ```
 
 ---
